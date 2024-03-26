@@ -6,34 +6,46 @@ public class CharacterMovements : MonoBehaviour
 {
     [SerializeField] float speed, jump;
     Rigidbody2D rb;
-    bool isGrounded;
+    bool isGrounded, canMove;
+
+    public static CharacterMovements instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        canMove = true;
     }
 
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (canMove)
         {
-            transform.position += transform.right * speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += transform.right * speed * Time.deltaTime;
 
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += transform.right * -speed * Time.deltaTime;
-        }
-        if(Input.GetKey(KeyCode.Space) && isGrounded)
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-           rb.AddForce(transform.up * jump, ForceMode2D.Impulse);
-        }
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position += transform.right * -speed * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.Space) && isGrounded)
+                if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+                {
+                    rb.AddForce(transform.up * jump, ForceMode2D.Impulse);
+                }
 
-        if (rb.velocity.y < 0)
-        {
-            rb.gravityScale = 2;
+            if (rb.velocity.y < 0)
+            {
+                rb.gravityScale = 2;
+            }
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,4 +65,10 @@ public class CharacterMovements : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void EnableCharacterMovement(bool enabling)
+    {
+        canMove = enabling;
+    }
+
 }
