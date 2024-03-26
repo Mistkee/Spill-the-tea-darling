@@ -6,12 +6,35 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
+    GameObject recipePanel;
+    int itemsAvailable;
 
-   
+    private void Awake()
+    {
+        recipePanel = GameObject.Find("Recipe Panel");
+    }
+    private void Start()
+    {
+        itemsAvailable = 5;
+    }
 
     public void ItemBought(GameObject button)
     {
-        Debug.Log(button.GetComponent<ItemShopScript>().data.name);
-        InventoryScript.instance.AddToInvetory(button.GetComponent<ItemShopScript>().data);
+        
+        if (itemsAvailable >= 0)
+        {
+            itemsAvailable--;
+            InventoryScript.instance.AddToInvetory(button.GetComponent<ItemShopScript>().data);
+        }
+        else
+        {
+            Debug.Log("You can't buy anything else today");
+        }
+       
+    }
+
+    public void Displayrecipes()
+    {
+        recipePanel.SetActive(true);
     }
 }
