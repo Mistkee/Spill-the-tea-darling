@@ -15,6 +15,6 @@ public class InventoryScript : MonoBehaviour
     public void AddToInvetory(ItemData itemToAdd)
     {
         inventory.Add(itemToAdd);
-        Debug.Log(inventory[1].name)
+        Debug.Log(inventory[1].name);
     }
 }
