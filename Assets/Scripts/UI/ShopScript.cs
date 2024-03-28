@@ -21,7 +21,7 @@ public class ShopScript : MonoBehaviour
     public void ItemBought(GameObject button)
     {
         
-        if (itemsAvailable >= 0)
+        if (itemsAvailable > 0)
         {
             itemsAvailable--;
             InventoryScript.instance.AddToInvetory(button.GetComponent<ItemShopScript>().data);

@@ -9,26 +9,31 @@ public class MenuScript : MonoBehaviour
 
     private void Start()
     {
-        
+        CanvasManager.instance.CanUseEscapeMenu(true);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && CanvasManager.instance.CurrentUseEscapeMenu())
         {
             openMenu = !openMenu;
-           
+
         }
-    
+
         if (openMenu)
         {
+            CanvasManager.instance.EscapeMenuEnabled(true);
+            
             Time.timeScale = 0f;
             menuInventory.SetActive(true);
         }
-        else
+        else if (!openMenu)
         {
+            CanvasManager.instance.EscapeMenuEnabled(false);
+           
             Time.timeScale = 1f;
             menuInventory.SetActive(false);
         }
+       
     }
 }

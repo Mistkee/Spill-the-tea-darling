@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Orange
   m_EditorClassIdentifier: 
   iD: ORANGE
+  icon: {fileID: 21300000, guid: 0a80ea79ec07a4c45b716457d7fbb20d, type: 3}
   name: Orange
   cost: 150

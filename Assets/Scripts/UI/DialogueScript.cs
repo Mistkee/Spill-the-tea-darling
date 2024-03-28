@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualCueScript : MonoBehaviour
+public class DialogueScript : MonoBehaviour
 {
-    [SerializeField] GameObject visualCue, canvasToOpen;
+    [SerializeField] List<ItemData> requestedRecipe;
+    [SerializeField] GameObject visualCue;//, canvasToOpen;
     [SerializeField] float offSet;
     bool inRange, openInteractible;
 
@@ -14,28 +15,29 @@ public class VisualCueScript : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && inRange && !CanvasManager.instance.CurrentEscapeMenuState())
+        if (Input.GetKeyDown(KeyCode.E) && inRange && !CanvasManager.instance.CurrentEscapeMenuState())
         {
-            openInteractible = !openInteractible;
+            RecipeScript.instance.NewRecipe(requestedRecipe);
+            //openInteractible = !openInteractible;
         }
-        if (openInteractible)
-        {
-            CharacterMovements.instance.EnableCharacterMovement(false);
-            canvasToOpen.SetActive(true);
-        }
-        else if (!openInteractible && inRange) 
-        {
-            CharacterMovements.instance.EnableCharacterMovement(true);
-            canvasToOpen.SetActive(false);
-        }
-       
+        //if (openInteractible)
+        //{
+        //    CharacterMovements.instance.EnableCharacterMovement(false);
+        //    canvasToOpen.SetActive(true);
+        //}
+        //else if (!openInteractible && inRange)
+        //{
+        //    CharacterMovements.instance.EnableCharacterMovement(true);
+        //    canvasToOpen.SetActive(false);
+        //}
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
+
             visualCue.SetActive(true);
             visualCue.GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + gameObject.GetComponent<SpriteRenderer>().size.y + offSet));
         }
@@ -58,5 +60,4 @@ public class VisualCueScript : MonoBehaviour
             visualCue.SetActive(false);
         }
     }
-
 }

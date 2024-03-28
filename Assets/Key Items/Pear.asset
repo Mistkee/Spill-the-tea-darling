@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Pear
   m_EditorClassIdentifier: 
   iD: PEAR
+  icon: {fileID: 21300000, guid: 543b01afa80dc10419f48335e01e322c, type: 3}
   name: Pear
   cost: 150
