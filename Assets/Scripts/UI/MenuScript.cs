@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField] GameObject menuInventory;
+    [SerializeField] GameObject menuInventory, inventoryPanel;
     bool isInShop, openMenu;
 
     private void Start()
@@ -17,15 +17,17 @@ public class MenuScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && CanvasManager.instance.CurrentUseEscapeMenu())
         {
             openMenu = !openMenu;
-
+            
         }
 
         if (openMenu)
         {
             CanvasManager.instance.EscapeMenuEnabled(true);
+
             
             Time.timeScale = 0f;
             menuInventory.SetActive(true);
+            
         }
         else if (!openMenu)
         {
@@ -33,7 +35,18 @@ public class MenuScript : MonoBehaviour
            
             Time.timeScale = 1f;
             menuInventory.SetActive(false);
+            
         }
        
+    }
+
+    public void SetInventoryActive()
+    {
+        inventoryPanel.SetActive(true);
+    }
+
+    public void SetInventoryInactive()
+    {
+        inventoryPanel.SetActive(false);
     }
 }
