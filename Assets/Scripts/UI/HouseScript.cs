@@ -3,39 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class HouseScript : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class HouseScript : MonoBehaviour
 {
-    RectTransform rectTransform;
-    Image image;
-    [SerializeField] GameObject visualCue, canvasToOpen, inventoryPanel;
+
+    [SerializeField] GameObject visualCue, canvasToOpen;
     [SerializeField] float offSet;
     bool inRange, openInteractible;
-
-   
-    
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        image.color = new Color(255, 255, 255, 150) ;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        //rectTransform.anchoredPosition += eventData.delta;
-
-        transform.position = Input.mousePosition;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        image.color = new Color(255, 255, 255, 255);
-    }
-
-    void Start()
-    {
-        rectTransform = GetComponent<RectTransform>();
-        image = GetComponent<Image>();
-    }
 
 
     private void Update()
@@ -48,13 +21,13 @@ public class HouseScript : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         {
             CharacterMovements.instance.EnableCharacterMovement(false);
             canvasToOpen.SetActive(true);
-            inventoryPanel.SetActive(true);
+            
         }
         else if (!openInteractible && inRange)
         {
             CharacterMovements.instance.EnableCharacterMovement(true);
             canvasToOpen.SetActive(false);
-            inventoryPanel.SetActive(true);
+            
         }
 
     }
