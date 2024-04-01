@@ -21,7 +21,8 @@ public class HouseScript : MonoBehaviour
         {
             CharacterMovements.instance.EnableCharacterMovement(false);
             canvasToOpen.SetActive(true);
-            
+            InventoryScript.instance.SetScriptsOnItems();
+
         }
         else if (!openInteractible && inRange)
         {
@@ -36,7 +37,6 @@ public class HouseScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
             visualCue.SetActive(true);
             visualCue.GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + gameObject.GetComponent<SpriteRenderer>().size.y + offSet));
         }

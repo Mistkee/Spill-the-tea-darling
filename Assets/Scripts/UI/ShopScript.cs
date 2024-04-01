@@ -24,8 +24,7 @@ public class ShopScript : MonoBehaviour
         if (itemsAvailable > 0)
         {
             itemsAvailable--;
-            InventoryScript.instance.AddToInvetory(button.GetComponent<ItemShopScript>().data);
-            InventoryScript.instance.AddToHouseInvetory(button.GetComponent<ItemShopScript>().data);
+            InventoryScript.instance.AddToInventory(button.GetComponent<ItemShopScript>().data);
         }
         else
         {

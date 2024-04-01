@@ -12,26 +12,27 @@ public class DragAndDropScript : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        image.color = new Color(255, 255, 255, 150);
+       
         
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
-        collider.enabled = false;
+        //collider.enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        image.color = new Color(255, 255, 255, 255);
-        collider.enabled = true;
+
+
+        //collider.enabled = true;
     }
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
-        collider = GetComponent<BoxCollider2D>();
+        //collider = GetComponent<BoxCollider2D>();
     }
 }
