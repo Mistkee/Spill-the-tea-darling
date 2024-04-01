@@ -67,6 +67,8 @@ public class InventoryScript : MonoBehaviour
     public void RemoveFromInventory(ItemData itemToRemove)
     {
         inventory.Remove(itemToRemove);
+        UpdateInventory();
+        UpdateHouseInventory();
     }
 }
 

@@ -6,7 +6,6 @@ public class TeapotScript : MonoBehaviour
 {
 
     List<ItemData> requestedRecipe = new List<ItemData>(), addedIngredients = new List<ItemData>();
-
     private void Start()
     {
         InventoryScript.instance.SetScriptsOnItems();
@@ -16,8 +15,9 @@ public class TeapotScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<ItemShopScript>() == true)
         {
-            InventoryScript.instance.RemoveFromInventory(other.GetComponent<ItemData>());
+            InventoryScript.instance.RemoveFromInventory(other.GetComponent<ItemShopScript>().data);
             addedIngredients.Add(other.GetComponent<ItemShopScript>().data);
+            Destroy(other.gameObject);
         }
         Debug.Log(addedIngredients.Count);
     }
