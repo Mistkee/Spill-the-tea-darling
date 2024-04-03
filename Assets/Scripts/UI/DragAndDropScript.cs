@@ -8,7 +8,7 @@ public class DragAndDropScript : MonoBehaviour, IDragHandler, IBeginDragHandler,
 {
     RectTransform rectTransform;
     Image image;
-    BoxCollider2D collider;
+    BoxCollider collider;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -19,20 +19,20 @@ public class DragAndDropScript : MonoBehaviour, IDragHandler, IBeginDragHandler,
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
-        //collider.enabled = false;
+        collider.enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
 
 
-        //collider.enabled = true;
+        collider.enabled = true;
     }
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
-        //collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<BoxCollider>();
     }
 }

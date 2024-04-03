@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueScript : MonoBehaviour
 {
     [SerializeField] List<ItemData> requestedRecipe;
-    [SerializeField] GameObject visualCue;//, canvasToOpen;
+    [SerializeField] GameObject visualCue, canvasToOpen;
     [SerializeField] float offSet;
     bool inRange, openInteractible;
 
@@ -17,8 +17,16 @@ public class DialogueScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && inRange && !CanvasManager.instance.CurrentEscapeMenuState())
         {
+            canvasToOpen.SetActive(true);
+            CharacterMovements.instance.EnableCharacterMovement(false);
             RecipeScript.instance.NewRecipe(requestedRecipe);
             //openInteractible = !openInteractible;
+        }
+
+        if (canvasToOpen.active == true && Input.GetMouseButtonDown(0))
+        {
+            canvasToOpen.SetActive(false);
+            CharacterMovements.instance.EnableCharacterMovement(true);
         }
         //if (openInteractible)
         //{

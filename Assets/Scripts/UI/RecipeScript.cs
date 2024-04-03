@@ -8,6 +8,7 @@ public class RecipeScript : MonoBehaviour
 {
     [SerializeField] GameObject recipePanel;
     [SerializeField] List<TextMeshProUGUI> recipeListSlots;
+    List<ItemData> requestedRecipe;
 
     public static RecipeScript instance;
 
@@ -27,7 +28,7 @@ public class RecipeScript : MonoBehaviour
     }
     public void NewRecipe(List<ItemData> newRecipe )
     {
-        Debug.Log(newRecipe.Count);
+        requestedRecipe = newRecipe;
         for (int i = 0; i < newRecipe.Count; i++)
         {
             if(newRecipe[i] != null )
@@ -38,9 +39,9 @@ public class RecipeScript : MonoBehaviour
         }
     }
 
-    public void UpdateRecipe()
+    public List<ItemData> TakeRecipe()
     {
-
+        return requestedRecipe;
     }
     public void DisplayRecipes()
     {
