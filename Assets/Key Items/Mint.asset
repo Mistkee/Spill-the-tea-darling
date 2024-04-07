@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: MINT
   icon: {fileID: 21300000, guid: b439794815197db4ab51458aef4cc1c6, type: 3}
-  name: Mint
+  namee: Mint
   cost: 55

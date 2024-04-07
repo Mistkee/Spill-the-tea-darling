@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: CHOCOLATE
   icon: {fileID: 21300000, guid: ccb10ae37f3620d469ffef1b41bef8ba, type: 3}
-  name: Chocolate
+  namee: Chocolate
   cost: 75
