@@ -15,4 +15,4 @@ MonoBehaviour:
   iD: HONEY
   icon: {fileID: 21300000, guid: 721badf647216304ab9be208c5fe93ef, type: 3}
   name: Honey
-  cost: 200
+  cost: 60

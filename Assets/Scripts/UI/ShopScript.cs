@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShopScript : MonoBehaviour
 {
     GameObject recipePanel;
-    int itemsAvailable;
+    //int itemsAvailable;
 
     private void Awake()
     {
@@ -15,21 +15,21 @@ public class ShopScript : MonoBehaviour
     }
     private void Start()
     {
-        itemsAvailable = 5;
+        
     }
 
     public void ItemBought(GameObject button)
     {
-        
-        if (itemsAvailable > 0)
-        {
-            itemsAvailable--;
-            InventoryScript.instance.AddToInventory(button.GetComponent<ItemShopScript>().data);
-        }
-        else
-        {
-            Debug.Log("You can't buy anything else today");
-        }
+        InventoryScript.instance.AddToInventory(button.GetComponent<ItemShopScript>().data);
+        //if (itemsAvailable > 0)
+        //{
+        //    itemsAvailable--;
+            
+        //}
+        //else
+        //{
+        //    Debug.Log("You can't buy anything else today");
+        //}
        
     }
 

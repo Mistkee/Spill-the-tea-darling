@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20df6d46282345046a34ed613701e197, type: 3}
-  m_Name: Orange
+  m_Name: Tea
   m_EditorClassIdentifier: 
-  iD: ORANGE
-  icon: {fileID: 21300000, guid: 0a80ea79ec07a4c45b716457d7fbb20d, type: 3}
-  name: Orange
+  iD: TEA
+  icon: {fileID: 21300000, guid: 1b2244c358bba7a4180b167d7820413d, type: 3}
+  name: Tea
   cost: 50
