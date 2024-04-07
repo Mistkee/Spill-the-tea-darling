@@ -33,7 +33,7 @@ public class RecipeScript : MonoBehaviour
         {
             if(newRecipe[i] != null )
             {
-                recipeListSlots[i].text = "" + newRecipe[i].name;
+                recipeListSlots[i].text = "" + newRecipe[i].namee;
             }
             
         }

@@ -35,7 +35,7 @@ public class InventoryScript : MonoBehaviour
         {
             money = money - itemToAdd.cost;
             coins.text = "Coins : " + money;
-            Debug.Log(itemToAdd.name);
+            Debug.Log(itemToAdd.namee);
             inventory.Add(itemToAdd);
             UpdateInventory();
             UpdateHouseInventory();
@@ -47,7 +47,7 @@ public class InventoryScript : MonoBehaviour
     {
         for (int i = 0; i < inventory.Count; i++)
         {
-            Debug.Log(inventory[i].icon.name);
+            
             spritesInventory[i].enabled = true;
             spritesInventory[i].sprite = inventory[i].icon;
 
@@ -58,7 +58,7 @@ public class InventoryScript : MonoBehaviour
     {
         for (int i = 0; i < inventory.Count; i++)
         {
-            Debug.Log(inventory[i].icon.name);
+            
             spritesHouseInventory[i].enabled = true;
             spritesHouseInventory[i].sprite = inventory[i].icon;
             
